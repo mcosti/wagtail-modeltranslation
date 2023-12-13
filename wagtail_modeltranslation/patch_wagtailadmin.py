@@ -120,7 +120,7 @@ class WagtailTranslator(object):
         if TRANSLATE_SLUGS:
             model.set_url_path = _new_set_url_path
             model.route = _new_route
-            model._update_descendant_url_paths = _new_update_descendant_url_paths
+            # model._update_descendant_url_paths = _new_update_descendant_url_paths  # using wagtail in headless mode
             if not hasattr(model, '_get_site_root_paths'):
                 model.get_url_parts = _new_get_url_parts  # Wagtail<1.11
             model._get_site_root_paths = _new_get_site_root_paths
@@ -552,7 +552,8 @@ class LocalizedSaveDescriptor(object):
 
         # update children localized paths if any language had it slug changed
         if change_descendant_url_path:
-            _update_translation_descendant_url_paths(old_record, instance)
+            pass  # using wagtail in headless mode
+            # _update_translation_descendant_url_paths(old_record, instance)
 
         # Check if this is a root page of any sites and clear the 'wagtail_site_root_paths_XX' key if so
         if Site.objects.filter(root_page=instance).exists():
