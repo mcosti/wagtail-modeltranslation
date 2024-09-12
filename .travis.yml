@@ -2,28 +2,7 @@ language: python
 python:
   - "3.10"
 env:
-  - WAGTAIL="wagtail>=2.16,<3.0" DB=sqlite
-matrix:
-  include:
-  # Latest Wagtail version
-  - env: WAGTAIL="wagtail>=2.16,<3.0" DB=postgres
-  - env: WAGTAIL="wagtail>=2.16,<3.0" DB=mysql
-  - python: "3.10"
-  - python: "3.9"
-  - python: "3.8"
-  - python: "3.7"
-  - python: "3.6"
-  # Past Wagtail versions
-  - python: "3.10"
-    env: WAGTAIL="wagtail>=2.15,<2.16"
-  - python: "3.8"
-    env: WAGTAIL="wagtail>=2.11,<2.12"
-  - python: "3.8"
-    env: WAGTAIL="wagtail>=2.7,<2.8"
-  - python: "3.6"
-    env: WAGTAIL="wagtail>=2.3,<2.4"
-  - python: "3.6"
-    env: WAGTAIL="wagtail>=2.0,<2.1"
+  - WAGTAIL="wagtail==4.1.1" DB=sqlite
 services:
   - mysql
   - postgresql
